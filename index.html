@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   </head>
@@ -16,41 +17,41 @@
           <div class="box has-background-black" style="width: 320px;">
 
         <form>
-          <input class="input has-background-black has-text-white is-large" type="text" id="input" name="userInput" style="border-color: black;">
+          <input id="display" class="input has-background-black has-text-white is-large" type="text" id="input" name="userInput" style="border-color: black;" disabled>
         </form>
 
         <div class="firstRowButtons">
-          <a class="button is-light" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">AC</a>
-          <a class="button is-light is-medium" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">+/-</a>
-          <a class="button is-light is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">%</a>
-          <a class="button is-light is-large has-text-white" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px; background-color: goldenrod;">÷</a>
+          <button value = "AC" class="button is-light" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">AC</button>
+          <button value = "CE" class="button is-light is-medium" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">CE</button>
+          <button value = "%" class="button is-light is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">%</button>
+          <button value = "/" class="button is-light is-large has-text-white" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px; background-color: goldenrod;">÷</button>
         </div>
     
         <div class="secondRowButtons">
-          <a class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">7</a>
-          <a class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">8</a>
-          <a class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">9</a>
-          <a class="button is-large has-text-white" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px; background-color: goldenrod;">x</a>
+          <button value = "7" class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">7</button>
+          <button value = "8" class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">8</button>
+          <button value = "9" class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">9</button>
+          <button value = "*" class="button is-large has-text-white" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px; background-color: goldenrod;">x</button>
         </div>
 
         <div class="thirdRowButtons">
-          <a class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">4</a>
-          <a class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">5</a>
-          <a class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">6</a>
-          <a class="button is-large has-text-white" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px; background-color: goldenrod;">-</a>
+          <button value = "8" class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">4</button>
+          <button value = "5" class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">5</button>
+          <button value = "6" class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">6</button>
+          <button value = "-" class="button is-large has-text-white" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px; background-color: goldenrod;">-</button>
         </div>
     
         <div class="fourthRowButtons">
-          <a class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">1</a>
-          <a class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">2</a>
-          <a class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">3</a>
-          <a class="button is-large has-text-white" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px; background-color: goldenrod;">+</a>
+          <button value = "1" class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">1</button>
+          <button value = "2" class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">2</button>
+          <button value = "3" class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">3</button>
+          <button value = "+" class="button is-large has-text-white" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px; background-color: goldenrod;">+</button>
         </div>
 
         <div class="fifthRowButtons">
-          <a class="button is-dark is-large" style="border-radius: 30%; height: 60px; width: 130px; margin: 3px;">0</a>
-          <a class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">.</a>
-          <a class="button is-large has-text-white" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px; background-color: goldenrod;">=</a>
+          <button value = "0" class="button is-dark is-large" style="border-radius: 30%; height: 60px; width: 130px; margin: 3px;">0</button>
+          <button value = "." class="button is-dark is-large" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px;">.</button>
+          <button value = "=" class="button is-large has-text-white" style="border-radius: 100%; height: 60px; width: 60px; margin: 3px; background-color: goldenrod;">=</button>
         </div>
       </div>
       </div>
@@ -63,6 +64,6 @@
 
 
 
-
+  <script src="./calculator.js"></script>
   </body>
 </html>  
