@@ -12,52 +12,64 @@ $("button").click(function() {
 
   if(!isNaN(val)){
     temp = val;
-    display.value = temp;
-  }
+    entries.push(val);
+    
+    for (var i = 0; i < entries.length; i++) {
+      if (!isNaN(entries[i])){
+        var longNumber = entries.join("");
+        display.value = longNumber;
+      } else {
+        display.value = temp;
+      }
+    }
+  }  
 
-  if(fired_button == "AC"){
+  else if(fired_button == "AC"){
     entries = [];
     temp = " ";
     total = 0;
     display.value = total;
   }
 
-  if (fired_button == "CE") {
+  else if (fired_button == "CE") {
     temp = " ";
     display.value = temp;
   }
   
   else if(isNaN(val) && fired_button != "=") {
-    entries.push(temp);
+ //   entries.push(temp);
     temp = fired_button;
-    entries.push(temp);
+    entries.push(temp); 
   }
 
   else if(fired_button == "=") {
-    entries.push(temp);
-    calculation();
+  //  entries.push(temp);
+    answer();
     display.value = total;
     entries = [];
     temp = " ";
   }
-  
-  //display.value = temp;
   console.log(entries);
 });
 
 
-function calculation(){
-  if (entries[1] == "+") {
-    total = entries[0] + entries[2]
-  }
-  else if (entries[1] == "-") {
-    total = entries[0] - entries[2]
-  }
-  else if (entries[1] == "/") {
-    total = entries[0] / entries[2]
-  }
-  else if (entries[1] == "*") {
-    total = entries[0] * entries[2]
-  }
+function answer(){
+  debugger
+  var str = entries.join("");
+  total = eval(str);
+
+
+  // if (entries[1] == "+") {
+  //   total = entries[0] + entries[2]
+  // }
+  // else if (entries[1] == "-") {
+  //   total = entries[0] - entries[2]
+  // }
+  // else if (entries[1] == "/") {
+  //   total = entries[0] / entries[2]
+  // }
+  // else if (entries[1] == "*") {
+  //   total = entries[0] * entries[2]
+  // }
 }
 
