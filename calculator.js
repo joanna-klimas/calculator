@@ -2,37 +2,35 @@ var entries = []
 var total = 0;
 var temp = "";
 
-
-
-
 $("button").click(function() {
   var fired_button = $(this).val();
   var number = Number(fired_button);
   var display = document.querySelector("#display");
 
-  debugger
-  if(fired_button === "AC"){
-    restart();
-    total = 0;
-    display.value = total;
-  }
+  switch(fired_button)
+  {
+    case "AC":
+      restart();
+      total = 0;
+      display.value = total;
+      break;
 
-  else if (fired_button === "CE") {
-    entries.pop();
-    display.value = entries.join("");
-  }
+    case "CE":
+      entries.pop();
+      display.value = entries.join("");
+      break;
 
-  else if(fired_button === "=") {
-    answer();
-    display.value = total;
-    restart();
+    case "=":
+      answer();
+      display.value = total;
+      restart();
+      break; 
 
-  } else {
-    entries.push(fired_button); 
-    for (var i = 0; i < entries.length; i++) {
-       // var equation = 
+    default:
+      entries.push(fired_button); 
+      for (var i = 0; i < entries.length; i++) {
         display.value = entries.join("");
-    } 
+      } 
   }
 
 });
