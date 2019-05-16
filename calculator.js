@@ -11,47 +11,35 @@ $("button").click(function() {
   var display = document.querySelector("#display");
 
   debugger
-  if(!isNaN(number)){
-    temp = number;
-    entries.push(temp);
-    
-    for (var i = 0; i < entries.length; i++) {
-      if (!isNaN(entries[i])){
-        var longNumber = entries.join("");
-        display.value = longNumber;
-      } else {
-        display.value = temp;
-      }
-    }
-  }  
-
-  else if(fired_button == "AC"){
+  if(fired_button === "AC"){
     restart();
     total = 0;
     display.value = total;
   }
 
-  else if (fired_button == "CE") {
+  else if (fired_button === "CE") {
     entries.pop();
-    temp = " ";
-    display.value = entries.join(" ");
-  }
-  
-  else if(isNaN(number) && fired_button != "=") {
-    temp = fired_button;
-    entries.push(temp); 
+    display.value = entries.join("");
   }
 
-  else if(fired_button == "=") {
+  else if(fired_button === "=") {
     answer();
     display.value = total;
     restart();
+
+  } else {
+    entries.push(fired_button); 
+    for (var i = 0; i < entries.length; i++) {
+       // var equation = 
+        display.value = entries.join("");
+    } 
   }
+
 });
 
 function restart() {
   entries = [];
-  temp = " ";
+  temp = "";
 }
 
 function answer(){
@@ -59,4 +47,3 @@ function answer(){
   var str = entries.join("");
   total = eval(str);
 }
-
