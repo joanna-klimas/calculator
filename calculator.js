@@ -10,7 +10,7 @@ $("button").click(function() {
 
   if(!isNaN(val)){
     temp = val;
-    entries.push(val);
+    entries.push(temp);
     
     for (var i = 0; i < entries.length; i++) {
       if (!isNaN(entries[i])){
