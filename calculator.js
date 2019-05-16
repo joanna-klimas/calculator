@@ -4,11 +4,9 @@ var total = 0;
 var temp = "";
 
 $("button").click(function() {
-  debugger
   var fired_button = $(this).val();
   var val = Number(fired_button);
   var display = document.getElementById("display");
-
 
   if(!isNaN(val)){
     temp = val;
@@ -25,8 +23,7 @@ $("button").click(function() {
   }  
 
   else if(fired_button == "AC"){
-    entries = [];
-    temp = " ";
+    restart();
     total = 0;
     display.value = total;
   }
@@ -37,39 +34,25 @@ $("button").click(function() {
   }
   
   else if(isNaN(val) && fired_button != "=") {
- //   entries.push(temp);
     temp = fired_button;
     entries.push(temp); 
   }
 
   else if(fired_button == "=") {
-  //  entries.push(temp);
     answer();
     display.value = total;
-    entries = [];
-    temp = " ";
+    restart();
   }
-  console.log(entries);
 });
 
+function restart() {
+  entries = [];
+  temp = " ";
+}
 
 function answer(){
   debugger
   var str = entries.join("");
   total = eval(str);
-
-
-  // if (entries[1] == "+") {
-  //   total = entries[0] + entries[2]
-  // }
-  // else if (entries[1] == "-") {
-  //   total = entries[0] - entries[2]
-  // }
-  // else if (entries[1] == "/") {
-  //   total = entries[0] / entries[2]
-  // }
-  // else if (entries[1] == "*") {
-  //   total = entries[0] * entries[2]
-  // }
 }
 
