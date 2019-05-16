@@ -1,13 +1,16 @@
 var entries = []
 var total = 0;
-
 var temp = "";
+
+
+
 
 $("button").click(function() {
   var fired_button = $(this).val();
   var number = Number(fired_button);
   var display = document.querySelector("#display");
 
+  debugger
   if(!isNaN(number)){
     temp = number;
     entries.push(temp);
@@ -29,8 +32,9 @@ $("button").click(function() {
   }
 
   else if (fired_button == "CE") {
+    entries.pop();
     temp = " ";
-    display.value = temp;
+    display.value = entries.join(" ");
   }
   
   else if(isNaN(number) && fired_button != "=") {
