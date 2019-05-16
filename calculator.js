@@ -6,7 +6,7 @@ var temp = "";
 $("button").click(function() {
   var fired_button = $(this).val();
   var number = Number(fired_button);
-  var display = document.getElementById("display");
+  var display = document.querySelector("#display");
 
   if(!isNaN(number)){
     temp = number;
