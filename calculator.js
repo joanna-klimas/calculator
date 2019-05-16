@@ -40,8 +40,6 @@ function restart() {
   temp = "";
 }
 
-function answer(){
-  debugger
-  var str = entries.join("");
-  total = eval(str);
+function answer() {
+  total = eval(entries.join(""));
 }
