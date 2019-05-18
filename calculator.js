@@ -60,9 +60,9 @@ function isNumber() {
 
 function operator() {
   debugger
-  for (var i = 0; i < entries.length; i++) {
-    display.value = entries.join("");
-  }
+  // for (var i = 0; i < entries.length; i++) {
+  display.value = entries.join("");
+  // }
 }  
 
 function restart() {
